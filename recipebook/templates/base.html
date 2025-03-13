@@ -4,6 +4,13 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{% block title %}Recipe List{% endblock %}</title>
+        <nav>
+            {% if user.is_authenticated %}
+                <a href="/accounts/logout">Logout</a>
+            {% else %}
+                <a href="/accounts/login">Login</a>
+            {% endif %}
+        </nav>
         {% block style %}
         {% endblock %}
     </head>
