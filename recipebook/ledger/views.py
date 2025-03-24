@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
@@ -14,6 +15,13 @@ class RecipeListView(ListView):
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = "recipe_detail.html"
+
+
+@login_required
+class RecipeCreateView(CreateView):
+    model = Recipe
+    template_name = "recipe_form.html"
+    fields = '__all__'
 
 @login_required
 def recipe_list(request):
