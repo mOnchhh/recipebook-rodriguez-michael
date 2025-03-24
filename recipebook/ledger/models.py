@@ -45,6 +45,15 @@ class RecipeIngredient(models.Model):
     def __str__(self):
         return f"{self.quantity} {self.ingredient.name} for {self.recipe.name}"
 
+class RecipeImage(models.Model):
+    image = models.ImageField(upload_to="images/")
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        null=True,
+        related_name="images"
+    )
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)

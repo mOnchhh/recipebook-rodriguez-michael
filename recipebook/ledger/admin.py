@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Recipe, Ingredient, RecipeIngredient
+from .models import Recipe, Ingredient, RecipeIngredient, RecipeImage
 
 class RecipeIngredientInline(admin.TabularInline):
     model = RecipeIngredient
@@ -8,6 +8,7 @@ class RecipeIngredientInline(admin.TabularInline):
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
     list_display = ("name",)
+    image = RecipeImage
     inlines = [RecipeIngredientInline]
 
 class IngredientAdmin(admin.ModelAdmin):
