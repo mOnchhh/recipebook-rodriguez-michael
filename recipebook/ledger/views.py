@@ -20,7 +20,7 @@ class RecipeDetailView(DetailView):
 @login_required
 class RecipeCreateView(CreateView):
     model = Recipe
-    template_name = "recipe_form.html"
+    template_name = "recipe_create.html"
     fields = '__all__'
 
 @login_required
